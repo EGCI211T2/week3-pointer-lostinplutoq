@@ -1,11 +1,15 @@
 #include <iostream>
 #include <iomanip>
+#include <cstdlib> //required for atoi()
 
 using namespace std;
 
-int main() {
+int main(int argc, char*argv[]) {
     int n;
     int *pa, *pb, i, temp;
+
+    //determine the size of array
+    n = argc - 1
 
     // Get dynamic size
     cout << "Enter the size of the array: ";
@@ -13,7 +17,7 @@ int main() {
 
     // Check for size
     if (n <= 0) {
-        cout << "Error: The size must be a positive number." << endl;
+        cout << "Usage: " << argv[0] << " <integer1> <integer2> ... <integerN>" << endl;
         return 1;
     }
 
@@ -21,12 +25,14 @@ int main() {
     int *a = new int[n];
     pa = a; // pa points to the first element of new array
 
-    // Input values to the array
-    cout << "Enter " << n << " integer values" << endl;
+    // Convert command-line arguments to integer and store in array
     for (i = 0; i < n; i++) {
-        cout << "Enter value " << i + 1 << ": ";
-        cin >> pa[i];
+        *pa = atoi(argv[i+1]);
+        pa++;
     }
+
+    //Reset pa to the start of the array
+    pa = a;
     
     // Print the original array
     cout << "\nOriginal: ";
