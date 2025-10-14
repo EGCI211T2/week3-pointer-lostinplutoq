@@ -9,7 +9,7 @@ int main(int argc, char*argv[]) {
     int *pa, *pb, i, temp;
 
     //determine the size of array
-    n = argc - 1
+    n = argc - 1;
 
     // Get dynamic size
     cout << "Enter the size of the array: ";
